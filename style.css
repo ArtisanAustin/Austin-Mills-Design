@@ -169,6 +169,26 @@ p {
   font-size: var(--size-16);
 }
 
+a {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  font-size: var(--size-16);
+  color: var(--blue-500);
+}
+
+a:visited {
+  color: var(--blue-500);
+}
+
+a:hover {
+  color: var(--blue-500);
+}
+
+a:active {
+  color: var(--blue-500);
+}
+
 /*===Spacing===*/
 
 .margin-8 { margin: var(--size-8); }
@@ -253,6 +273,7 @@ header {
     color: inherit;
     display: flex;
     align-items: center;
+  gap: var(--size-8);
     position: relative;
     z-index: 2;
 }
@@ -496,6 +517,40 @@ header {
 }
 
 
+/* === Home Page === */
+
+.nav-button-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--size-16);
+    margin-top: var(--size-32);
+}
+.nav-button {
+    display: inline-block;
+    padding: var(--size-16) var(--size-32);
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--size-18);
+    background-color: var(--blue-300);
+    border: none;
+    border-radius: var(--size-4);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+  .nav-button,
+  .nav-button:visited,
+  .nav-button:hover,
+  .nav-button:active {
+    color: var(--white-100);
+  }
+
+.nav-button:hover {
+    background-color: var(--blue-400);
+    transform: translateY(-2px);
+}
+
 
 /* === Portfolio Page === */
 
@@ -643,7 +698,7 @@ header {
   font-family: var(--font-family-body);
   font-size: var(--size-14);
   font-style: var(--font-style-italic);
-  color: var(--blue-400);
+  color: var(--blue-500);
   margin-top: var(--size-8);
   text-align: center;
 }
@@ -692,37 +747,6 @@ header {
     width: 100%;
   }
 
-  .showcase-top-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--size-32);
-    width: 100%;
-  }
-
-  .showcase-top-row .showcase-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-16);
-  }
-
-  .showcase-top-row .NBC-static-showcase {
-    width: 320px; 
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .showcase-top-row .NBC-static-showcase img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    width: 300px
-  }
-
   .showcase .carousels-wrapper {
     display: flex;
     flex-direction: row;
@@ -738,6 +762,26 @@ header {
   }
 }
 
+@media (max-width: 400px) {
+  .carousels-wrapper {
+    gap: var(--size-16); 
+    flex-direction: column;
+  }
+
+  .carousel-container {
+    width: 100%;
+  }
+
+  section.showcase .carousels-wrapper {
+    flex-direction: column;
+  }
+
+  .carousel-stage {
+    height: 200px
+  }
+
+
+}
 
 /* === ember & bean === */
 
@@ -952,7 +996,187 @@ header {
     }
 }
 
+@media (max-width: 400px) {
 
+   .project-header-tan {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--size-24);
+    color: var(--tan-500);
+    margin: 5px var(--size-32);
+  }
+
+  .project-description-tan {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--size-18);
+    color: var(--tan-500);
+    margin: var(--size-32);
+  }
+
+   .second-showcase {
+    display: flex;
+    gap: var(--size-32);
+    width: 100%;
+    padding: var(--size-48);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ember-bean-card {
+    display: flex;
+    flex-direction: column; /* Stacks top 50/50 row and bottom full-width row */
+    gap: var(--size-8);
+    width: 100%;
+    background-color: var(--tan-100);
+    padding: var(--size-8);
+    border-radius: var(--size-8);
+  }
+
+  .ember-bean-top-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--size-32);
+    width: 100%;
+  }
+
+  .ember-bean-top-row .ember-bean-logo-wrapper {
+    flex: 1 1 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ember-bean-top-row .ember-bean-text-wrapper {
+    flex: 1 1 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .ember-bean-bottom-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: var(--size-48);
+  }
+
+  .ember-bean-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-32);
+    margin-top: var(--size-32);
+  }
+
+  .ember-bean-product {
+    flex: 1;
+    width: 100%;
+    max-width: 200px; 
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+  }
+
+  .ember-bean-media-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
+    width: 100%;
+    max-width: fit-content;
+    margin: var(--size-16) auto 0 auto;
+  }
+
+  .ember-bean-packages {
+    display: flex;
+    gap: var(--size-8);
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+.ember-bean-packages .ember-bean-product {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Tan Carousel overrides */
+#ember-carousel {
+  flex: 1; 
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.carousel-tan .carousel-caption {
+  color: var(--tan-500);
+  border-color: var(--tan-500);
+}
+
+.carousel-tan .dot {
+  background-color: var(--tan-200);
+}
+
+.carousel-tan .dot.active {
+  background-color: var(--tan-500);
+}
+
+.carousel-tan .carousel-arrow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--size-8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tan-300);
+    transition: color 0.2s ease-in-out;
+    height: var(--size-48);
+}
+
+.carousel-tan .carousel-arrow:hover {
+  color: var(--tan-500);
+}
+
+#ember-carousel .carousel-stage {
+  width: 100%;
+  height: auto;
+}
+
+#ember-carousel .carousel-slide {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain; 
+}
+
+.ember-bean-full-width {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--size-32);
+}
+
+.ember-menu {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+}
 
 /* === daily brew === */
 
@@ -1132,8 +1356,87 @@ header {
   }
 }
 
-/* === Hero Section === */
 
-/* === Cards === */
+/* === About Page === */
 
-/* === Footer === */
+.about-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: var(--size-32);
+  padding: var(--size-32);
+}
+
+.about-card {
+  display: block;
+  height: 100%;
+  padding: var(--size-16) var(--size-32);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--size-18);
+  color: var(--tan-500);
+  background-color: var(--tan-100);
+  border: 3px solid var(--tan-200);
+  border-radius: var(--size-4);
+  text-decoration: none;
+}
+
+.about-title {
+  padding-bottom: var(--size-16);
+}
+
+.bio-title {
+  display: flex;
+  justify-content: center;
+  padding: var(--size-16) var(--size-32);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--size-32);
+  color: var(--blue-500);
+}
+
+.bio-text {
+  display: flex;
+  justify-content: center;
+  padding: var(--size-16) var(--size-32);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--size-18);
+  color: var(--blue-500);
+}
+
+
+@media (max-width: 700px) {
+  .about-card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === Contact Page === */
+
+.contact-info-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--size-32)
+}
+
+.contact-info-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-weight-regular);
+  font-size: var(--size-32);
+  color: var(--blue-500);
+  padding: var(--size-32) 0 var(--size-16);
+  text-align: center;
+}
+
+.contact-info-text {
+  font-family: var(--font-family-body);
+  font-size: var(--font-weight-regular);
+  font-size: var(--size-24);
+  color: var(--blue-500);
+  text-align: center;
+
+}
+
+/* === template === */

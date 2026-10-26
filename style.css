@@ -84,6 +84,22 @@
 
 /*===Fonts===*/
 
+@font-face {
+  font-family: 'Shrikhand';
+  src: url('./Assets/Fonts/Shrikhand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Assets/Fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 .shrikhand-regular {
     font-family: var(--font-family-heading);
     font-weight: var(--font-weight-regular);
@@ -523,7 +539,7 @@ header {
     display: flex;
     justify-content: center;
     gap: var(--size-16);
-    margin-top: var(--size-32);
+    margin: var(--size-32);
 }
 .nav-button {
     display: inline-block;
@@ -551,6 +567,28 @@ header {
     transform: translateY(-2px);
 }
 
+@media (max-width: 550px) {
+  .nav-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--size-16);
+    margin-top: var(--size-32);
+}
+.nav-button {
+    display: inline-block;
+    padding: var(--size-16) var(--size-32);
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--size-18);
+    background-color: var(--blue-300);
+    border: none;
+    border-radius: var(--size-4);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+}
 
 /* === Portfolio Page === */
 
@@ -580,9 +618,9 @@ header {
 }
 
 .NBC-static-showcase img {
-    width: 100%;             /* fills the column horizontally */
-    height: 100%;            /* fills the column vertically */
-    object-fit: cover;       /* crops nicely while filling space */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
@@ -762,7 +800,24 @@ header {
   }
 }
 
-@media (max-width: 400px) {
+@media (min-width: 750px) and (max-width: 1050px) {
+  .NBC-static-showcase {
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: var(--size-24) auto;
+  }
+
+  .NBC-static-showcase img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 550px) {
   .carousels-wrapper {
     gap: var(--size-16); 
     flex-direction: column;
@@ -952,15 +1007,6 @@ header {
   object-fit: contain; 
 }
 
-.ember-bean-full-width {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: var(--size-32);
-}
-
 .ember-menu {
   width: 100%;
   max-width: 750px;
@@ -970,7 +1016,8 @@ header {
   margin: 0 auto;
 }
 
-@media (max-width: 1200px) {
+
+@media (min-width: 1051px) and (max-width: 1280px) {
 
     .ember-bean-bottom-row {
         width: 48%;
@@ -996,14 +1043,14 @@ header {
     }
 }
 
-@media (max-width: 400px) {
+@media (min-width: 550px) and (max-width: 1050px) {
 
-   .project-header-tan {
+  .project-header-tan {
     font-family: var(--font-family-body);
     font-weight: var(--font-weight-bold);
     font-size: var(--size-24);
     color: var(--tan-500);
-    margin: 5px var(--size-32);
+    margin: 20px var(--size-18); /* changed from size 32 */
   }
 
   .project-description-tan {
@@ -1011,81 +1058,62 @@ header {
     font-weight: var(--font-weight-regular);
     font-size: var(--size-18);
     color: var(--tan-500);
-    margin: var(--size-32);
+    margin: var(--size-32) var(--size-18); /* changed from size 32 */
   }
 
-   .second-showcase {
+  .second-showcase {
     display: flex;
     gap: var(--size-32);
     width: 100%;
-    padding: var(--size-48);
+    padding: var(--size-32); /* changed from size 48 */
     align-items: center;
     justify-content: center;
   }
-
   .ember-bean-card {
     display: flex;
-    flex-direction: column; /* Stacks top 50/50 row and bottom full-width row */
-    gap: var(--size-8);
+    flex-direction: column; 
+    gap: var(--size-32);
     width: 100%;
     background-color: var(--tan-100);
-    padding: var(--size-8);
+    padding: var(--size-16); /* changed from 32 */
     border-radius: var(--size-8);
   }
 
   .ember-bean-top-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* changed from row */
     align-items: flex-start;
     gap: var(--size-32);
-    width: 100%;
+    width: 100%; /* changed from 50 */
   }
 
   .ember-bean-top-row .ember-bean-logo-wrapper {
-    flex: 1 1 0;
-    width: 50%;
+    width: 100%; /* changed from 50 */
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .ember-bean-top-row .ember-bean-text-wrapper {
-    flex: 1 1 0;
-    width: 50%;
+    width: 100%; /* changed from 50 */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
 
-  .ember-bean-bottom-row {
+  .ember-bean-bottom-row { /* menus */
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* changed from row */
     align-items: center;
     padding-top: var(--size-48);
   }
 
-  .ember-bean-products {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--size-32);
-    margin-top: var(--size-32);
-  }
-
-  .ember-bean-product {
-    flex: 1;
-    width: 100%;
-    max-width: 200px; 
-    height: auto;
-    object-fit: contain;
-    align-self: center;
-  }
 
   .ember-bean-media-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* changed from row */
     align-items: center;
     justify-content: space-between;
     gap: 150px;
@@ -1094,88 +1122,12 @@ header {
     margin: var(--size-16) auto 0 auto;
   }
 
-  .ember-bean-packages {
-    display: flex;
-    gap: var(--size-8);
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+  .ember-bean-packages .ember-bean-product {
+    width: 100%;
+    max-width: 150px; /* changed from 200 */
+    height: auto;
+    object-fit: contain;
   }
-
-.ember-bean-packages .ember-bean-product {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Tan Carousel overrides */
-#ember-carousel {
-  flex: 1; 
-  width: 100%;
-  max-width: 375px;
-  margin: 0 auto;
-}
-
-.carousel-tan .carousel-caption {
-  color: var(--tan-500);
-  border-color: var(--tan-500);
-}
-
-.carousel-tan .dot {
-  background-color: var(--tan-200);
-}
-
-.carousel-tan .dot.active {
-  background-color: var(--tan-500);
-}
-
-.carousel-tan .carousel-arrow {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: var(--size-8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--tan-300);
-    transition: color 0.2s ease-in-out;
-    height: var(--size-48);
-}
-
-.carousel-tan .carousel-arrow:hover {
-  color: var(--tan-500);
-}
-
-#ember-carousel .carousel-stage {
-  width: 100%;
-  height: auto;
-}
-
-#ember-carousel .carousel-slide {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: contain; 
-}
-
-.ember-bean-full-width {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: var(--size-32);
-}
-
-.ember-menu {
-  width: 100%;
-  max-width: 750px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
 }
 
 /* === daily brew === */
@@ -1248,6 +1200,40 @@ header {
   }
 }
 
+@media (max-width: 550px) {
+
+  .daily-brew-container {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-16);
+  }
+
+  .daily-brew-menu {
+    width: 100%;
+    flex: 1 1 100%;
+    justify-content: center;
+    gap: var(--size-16);
+
+  }
+
+  .daily-brew-container .showcase-text {
+    width: 100%;
+    text-align: center;
+    flex: 100%;
+    padding: 0; /* changed from padding right to padding, this centered text*/
+  }
+
+
+  .daily-brew-menu-image {
+    flex: 1 1 0;
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding: var(--size-14); /* changed from padding right to padding, this centered text, changed size from 48 to 14*/
+  }
+}
+
 /* === lunch money === */
 
 .lunch-money-container {
@@ -1306,7 +1292,16 @@ header {
   transform: scale(1.1);
 }
 
+@media (max-width: 550px) {
 
+  .lunch-money-container .project-header {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--size-32); /* changed from 48 to 32 */
+    color: var(--blue-500);
+    margin-bottom: var(--size-16);
+  }
+}
 
 /* === ipad mini, 768 x 1024 === */
 
@@ -1325,9 +1320,10 @@ header {
 .NBC-static-showcase {
   flex: 1;
   width: 100%;
-  height: 100%; /* Forces the image wrapper/element to fill the parent's height */
-  object-fit: cover; /* Crops the image proportionally to fill the space without distorting */
+  height: 100%;
+  object-fit: cover;
 }
+
 .project-description {
     font-family: var(--font-family-body);
     font-weight: var(--font-weight-regular);

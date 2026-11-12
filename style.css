@@ -1435,4 +1435,92 @@ header {
 
 }
 
-/* === template === */
+/* === Services Page === */
+
+.pricing-container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.pricing-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Category header banners */
+.service-category {
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+/* Updated 4-column CSS Grid layout */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr 1fr 0.8fr;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Header styles */
+.grid-header {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 8px;
+    border-bottom: 2px solid #ccc;
+    border-right: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+/* Cell styles */
+.grid-cell {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Center-align price and revision numbers for cleaner reading */
+.pricing-grid > div:nth-child(4n + 3),
+.pricing-grid > div:nth-child(4n) {
+    justify-content: center;
+    text-align: center;
+}
+
+.service-name {
+    font-weight: bold;
+}
+
+/* Remove right borders for every 4th item */
+.pricing-grid > div:nth-child(4n) {
+    border-right: none;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    .grid-header {
+        display: none;
+    }
+    .grid-cell {
+        border-right: none;
+        justify-content: flex-start !important;
+        text-align: left !important;
+    }
+    .service-name {
+        background-color: #f7f7f7;
+        margin-top: 10px;
+    }
+}
